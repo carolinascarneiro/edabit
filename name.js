@@ -21,31 +21,26 @@ Check the Resources tab for some helpful tutorials on JavaScript classes.
 
 class Name {
 	constructor(fname, lname) {
-		this._fname = fname[0].toUpperCase() + fname.substring(1).toLowerCase();
-		this._lname = lname[0].toUpperCase() + lname.substring(1).toLowerCase();
-		this._fullname = this._fname + ' ' + this._lname;
-		this._initials = this.fname[0] + '.' + this.lname[0];
+		this._fname = fname;
+		this._lname = lname;
+		// this._fullname = this._fname + ' ' + this._lname;
+		// this._initials = this.fname[0] + '.' + this.lname[0];
 	}
-	
-    getFirstName() {
-        return this.fname;
-    
-    }
 
 	get fname() {
-		return this._fname;
+		return this._fname[0].toUpperCase() + this._fname.substring(1).toLowerCase();
 	}
 	
-		get lname() {
-		return this._lname;
+	get lname() {
+		return this._lname[0].toUpperCase() + this._lname.substring(1).toLowerCase();
 	}
 	
 	get fullname() {
-		return this._fullname;
+		return this._fname[0].toUpperCase() + this._fname.substring(1).toLowerCase() + ' ' + this._lname[0].toUpperCase() + this._lname.substring(1).toLowerCase();
 	}
 	
 	get initials() {
-		return this._initials;
+		return this._fname[0].toUpperCase() + '.' + this._lname[0].toUpperCase();
 	}
 }
 
@@ -60,4 +55,7 @@ console.log(a1.initials)
 or inside the getters?
 Answer: The best is to always do it ouside the constructor, so this case in the getters.
 Constructors should run as fast as possible and are intended just to create the object.
+
+2. The exercise says I'd have to add an attribute called fullname and another initials and the tests require that these can be logged by doing class.attribute.
+Do I need to declare them inside the constructor or is it enough to do it in the getters refering to the attributes declared in the constructor?
 */
