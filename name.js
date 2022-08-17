@@ -27,6 +27,11 @@ class Name {
 		this._initials = this.fname[0] + '.' + this.lname[0];
 	}
 	
+    getFirstName() {
+        return this.fname;
+    
+    }
+
 	get fname() {
 		return this._fname;
 	}
@@ -53,4 +58,6 @@ console.log(a1.initials)
 /* Question regarding best practices
 1. If I have to modify the arguments of the constructor, should I do it inside of the property declaration section
 or inside the getters?
+Answer: The best is to always do it ouside the constructor, so this case in the getters.
+Constructors should run as fast as possible and are intended just to create the object.
 */
